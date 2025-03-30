@@ -1,0 +1,62 @@
+// ** Default
+$defaultBG: rgb(29 31 32 / 71%);
+$defaultColor: #c8c8c8;
+$defaultBorder: #c8c8c8;
+
+// ** Info
+$infoBG: rgb(0, 4, 83);
+$infoColor: #bcc0ff;
+$infoBorder: #646cff;
+
+// ** Warning
+$warningBG: rgb(158, 118, 0);
+$warningColor: #ffebb0;
+$warningBorder: rgba(255, 213, 0, 0.793);
+
+// ** Error
+$errorBG: rgb(192 29 29 / 85%);
+$errorColor: #ef8d8dfa;
+$errorBorder: rgba(255, 25, 0, 0.322);
+
+// ** Success
+$successBG: rgb(46, 44, 0);
+$successColor: #7acf58d6;
+$successBorder: rgba(0, 255, 0, 0.322);
+
+@mixin alert($name, $BGColor, $fontColor, $borderColor) {
+  .#{$name} {
+    border: 2px dotted $borderColor;
+    border-radius: 8px;
+    background-color: $BGColor;
+    color: $fontColor;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+
+    .alert-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .title {
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin: 0 0.8rem;
+        }
+      }
+      svg {
+        margin-right: 0.8rem;
+        cursor: pointer
+      }
+    }
+  }
+}
+
+@include alert("default", $defaultBG, $defaultColor, $defaultBorder);
+@include alert("info", $infoBG, $infoColor,  $infoBorder);
+@include alert("warning", $warningBG, $warningColor, $warningBorder);
+@include alert("error", $errorBG, $errorColor, $errorBorder);
+@include alert("success", $successBG, $successColor, $successBorder);
